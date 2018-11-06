@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.8'
+gem "json" , github: "flori/json", branch: "v1.8"
 gem 'sqlite3'
 gem 'haml-rails'
 gem 'erb2haml'
