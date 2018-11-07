@@ -1,5 +1,6 @@
 import Dispatcher from '../dispatcher'
 import BaseStore from '../base/store'
+import UserStore from '../stores/user'
 
 const messages = {
   2: {
@@ -89,7 +90,25 @@ class ChatStore extends BaseStore {
 const MessagesStore = new ChatStore()
 
 MessagesStore.dispatchToken = Dispatcher.register(payload => {
+  const action = payload.action
 
+  switch (action.type) {
+    case 'updateOpenChatID':
+      openChatID = action.userID
+      MessagesStore.emitChange()
+      break
+
+    case 'sendMessage':
+      const userID = action.userID
+      messages[userID].messages.push({
+        contents: action.message,
+        timestamp: action.timestamp,
+        from: UserStore.user.id,
+      })
+      MessagesStore.emitChange()
+      break
+  }
+  return true
 })
 
 export default MessagesStore
