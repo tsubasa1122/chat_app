@@ -17,7 +17,7 @@ class ChatStore extends BaseStore {
   //   return
   // }
   getMessages() {
-    if (!this.get('messagesJson')) this.setMessages({})
+    if (!this.get('messagesJson')) this.setMessages([])
     return this.get('messagesJson')
   }
   setMessages(array) {
@@ -36,7 +36,7 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
 
     case ActionTypes.SEND_MESSAGE:
       const messages = MessagesStore.getMessages()
-      messages.push(action.json.message)
+      messages.push(action.json)
       // messages[openChatID].lastAccess.currentUser = +new Date()
       MessagesStore.emitChange()
       break

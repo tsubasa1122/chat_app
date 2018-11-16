@@ -653,3 +653,224 @@ ubuntu-bionic login: [ 4548.817812] BUG: unable to handle kernel paging request 
 [16790.156074] 04:39:22.415952 timesync vgsvcTimeSyncWorker: Radical host time change: 3 949 486 000 000ns (HostNow=1 542 287 165 341 000 000 ns HostLast=1 542 283 215 855 000 000 ns)
 [16800.277316] 04:39:32.679660 timesync vgsvcTimeSyncWorker: Radical guest time change: 3 948 237 765 000ns (GuestNow=1 542 287 175 605 608 000 ns GuestLast=1 542 283 227 367 843 000 ns fSetTimeLastLoop=true )
 [19810.742029] 05:29:43.245900 timesync vgsvcTimeSyncWorker: Radical host time change: 1 861 226 000 000ns (HostNow=1 542 292 037 413 000 000 ns HostLast=1 542 290 176 187 000 000 ns)
+[19820.981582] 05:29:53.484807 timesync vgsvcTimeSyncWorker: Radical guest time change: 1 861 480 245 000ns (GuestNow=1 542 292 047 651 999 000 ns GuestLast=1 542 290 186 171 754 000 ns fSetTimeLastLoop=true )
+[20581.174658] 05:42:33.678519 timesync vgsvcTimeSyncWorker: Radical host time change: 4 343 416 000 000ns (HostNow=1 542 297 141 266 000 000 ns HostLast=1 542 292 797 850 000 000 ns)
+[20591.519016] 05:42:44.022882 timesync vgsvcTimeSyncWorker: Radical host time change: 21 013 380 000 000ns (HostNow=1 542 318 154 646 000 000 ns HostLast=1 542 297 141 266 000 000 ns)
+[20591.676180] 05:42:44.180051 timesync vgsvcTimeSyncWorker: Radical guest time change: 4 343 735 522 000ns (GuestNow=1 542 297 151 579 806 000 ns GuestLast=1 542 292 807 844 284 000 ns fSetTimeLastLoop=true )
+[20601.787884] 05:42:54.291230 timesync vgsvcTimeSyncWorker: Radical guest time change: 21 013 366 514 000ns (GuestNow=1 542 318 164 946 320 000 ns GuestLast=1 542 297 151 579 806 000 ns fSetTimeLastLoop=true )
+[20621.859592] 05:43:14.363450 timesync vgsvcTimeSyncWorker: Radical host time change: 4 455 864 000 000ns (HostNow=1 542 322 630 878 000 000 ns HostLast=1 542 318 175 014 000 000 ns)
+[20632.028965] 05:43:24.532532 timesync vgsvcTimeSyncWorker: Radical guest time change: 4 456 039 806 000ns (GuestNow=1 542 322 641 052 714 000 ns GuestLast=1 542 318 185 012 908 000 ns fSetTimeLastLoop=true )
+[23279.753219] BUG: unable to handle kernel paging request at 0000000300000000
+[23279.934356] IP: 0x300000000
+[23280.005348] PGD 8000000039bfd067 P4D 8000000039bfd067 PUD 0 
+[23280.154173] Oops: 0010 [#2] SMP PTI
+[23280.223767] Modules linked in: vboxsf isofs input_leds serio_raw video vboxguest sch_fq_codel ib_iser rdma_cm iw_cm ib_cm ib_core iscsi_tcp libiscsi_tcp libiscsi scsi_transport_iscsi ip_tables x_tables autofs4 btrfs zstd_compress raid10 raid456 async_raid6_recov async_memcpy async_pq async_xor async_tx xor raid6_pq libcrc32c raid1 raid0 multipath linear crct10dif_pclmul crc32_pclmul ghash_clmulni_intel pcbc aesni_intel mptspi scsi_transport_spi mptscsih aes_x86_64 mptbase crypto_simd glue_helper cryptd psmouse e1000
+[23281.026745] CPU: 1 PID: 8743 Comm: node Tainted: G      D          4.15.0-39-generic #42-Ubuntu
+[23281.058194] Hardware name: innotek GmbH VirtualBox/VirtualBox, BIOS VirtualBox 12/01/2006
+[23281.066978] RIP: 0010:0x300000000
+[23281.067933] RSP: 0018:ffffb822c1de3a68 EFLAGS: 00010286
+[23281.069491] RAX: 0000000000000000 RBX: 0000000000000058 RCX: 00000000018d87e7
+[23281.072688] RDX: 00000000018d87e6 RSI: ffff88e4bfd270e0 RDI: 0000000000000000
+[23281.075862] RBP: 00000dfcc1de3a68 R08: 00000000000270e0 R09: ffffffffc05886cf
+[23281.172685] R10: fffffb7940e93540 R11: 0000000000000283 R12: ffffffffc0671ca0
+[23281.271089] R13: ffffb822c1de3ab8 R14: ffff88e4ba633b20 R15: ffff88e4bb6f2b40
+[23281.365614] FS:  00007f6616ffd700(0000) GS:ffff88e4bfd00000(0000) knlGS:0000000000000000
+[23281.577907] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[23281.714902] CR2: 0000000300000000 CR3: 0000000029920000 CR4: 00000000000406e0
+[23281.829654] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[23281.992536] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+[23282.114905] Call Trace:
+[23282.181525]  ? sf_stat+0x66/0x110 [vboxsf]
+[23282.276444]  ? sf_inode_revalidate+0x8c/0xe0 [vboxsf]
+[23282.365746]  ? __inode_permission+0x5b/0x160
+[23282.455529]  ? __d_lookup+0x109/0x140
+[23282.521019]  ? sf_dentry_revalidate+0x13/0x30 [vboxsf]
+[23282.541543]  ? lookup_fast+0x281/0x320
+[23282.580769]  ? path_init+0x177/0x2f0
+[23282.596746]  ? path_openat+0x163/0x1770
+[23282.625730]  ? do_filp_open+0x9b/0x110
+[23282.638357]  ? __check_object_size+0xaf/0x1b0
+[23282.723510]  ? __alloc_fd+0xb2/0x170
+[23282.772346]  ? do_sys_open+0x1bb/0x2c0
+[23282.820656]  ? do_sys_open+0x1bb/0x2c0
+[23282.901734]  ? SyS_openat+0x14/0x20
+[23282.953940]  ? do_syscall_64+0x73/0x130
+[23282.968667]  ? entry_SYSCALL_64_after_hwframe+0x3d/0xa2
+[23283.048174] Code:  Bad RIP value.
+[23283.122491] RIP: 0x300000000 RSP: ffffb822c1de3a68
+[23283.264649] CR2: 0000000300000000
+[23283.292632] ---[ end trace d36ba358563f06dc ]---
+[27474.304997] 07:37:28.976003 timesync vgsvcTimeSyncWorker: Radical host time change: 2 067 441 000 000ns (HostNow=1 542 331 698 874 000 000 ns HostLast=1 542 329 631 433 000 000 ns)
+[27484.503616] 07:37:39.226012 timesync vgsvcTimeSyncWorker: Radical guest time change: 2 223 629 267 000ns (GuestNow=1 542 331 709 124 727 000 ns GuestLast=1 542 329 485 495 460 000 ns fSetTimeLastLoop=true )
+[33817.856310] BUG: stack guard page was hit at 00000000bfdb1374 (stack is 00000000dbb57148..000000000c599b30)
+[33817.999819] kernel stack overflow (page fault): 0000 [#3] SMP PTI
+[33818.147579] Modules linked in: vboxsf isofs input_leds serio_raw video vboxguest sch_fq_codel ib_iser rdma_cm iw_cm ib_cm ib_core iscsi_tcp libiscsi_tcp libiscsi scsi_transport_iscsi ip_tables x_tables autofs4 btrfs zstd_compress raid10 raid456 async_raid6_recov async_memcpy async_pq async_xor async_tx xor raid6_pq libcrc32c raid1 raid0 multipath linear crct10dif_pclmul crc32_pclmul ghash_clmulni_intel pcbc aesni_intel mptspi scsi_transport_spi mptscsih aes_x86_64 mptbase crypto_simd glue_helper cryptd psmouse e1000
+[33818.514639] CPU: 1 PID: 9348 Comm: node Tainted: G      D          4.15.0-39-generic #42-Ubuntu
+[33818.537804] Hardware name: innotek GmbH VirtualBox/VirtualBox, BIOS VirtualBox 12/01/2006
+[33818.554834] RIP: 0010:VbglR0HGCMInternalCall+0x63e/0xeb0 [vboxguest]
+[33818.577252] RSP: 0018:ffffb822c0e33728 EFLAGS: 00010206
+[33818.591117] RAX: ffffffffc058503b RBX: ffffb822c0e33a00 RCX: 0000000000000001
+[33818.623558] RDX: 0000000000000000 RSI: 0000000000000202 RDI: 0000000000000202
+[33818.670403] RBP: ffffb822c0e338b0 R08: 0000000000000000 R09: 00000000ffffff1c
+[33818.704080] R10: 00000000ffffff1c R11: 00000000000003a5 R12: 00000000000005e0
+[33818.726319] R13: 0000000000053310 R14: 000000000000005e R15: ffff88e4bc30041c
+[33818.752108] FS:  00007f3914d34700(0000) GS:ffff88e4bfd00000(0000) knlGS:0000000000000000
+[33818.777630] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[33818.789227] CR2: ffffb822c0e34008 CR3: 0000000036178000 CR4: 00000000000406e0
+[33818.799345] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
+[33818.820601] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
+[33818.858719] Call Trace:
+[33818.859496]  ? vgdrvHgcmAsyncWaitCallbackWorker+0x210/0x210 [vboxguest]
+[33818.875399]  ? finish_task_switch+0x72/0x220
+[33818.876463]  ? __schedule+0x299/0x8a0
+[33818.896701]  ? vgdrvIoCtl_HGCMCallWrapper+0x1d3/0x2e0 [vboxguest]
+[33818.918081]  vgdrvIoCtl_HGCMCallWrapper+0x1d3/0x2e0 [vboxguest]
+[33818.945763]  VGDrvCommonIoCtl+0x3cd/0x1810 [vboxguest]
+[33818.966792]  ? VbglR0IdcCallRaw+0x13/0x20 [vboxsf]
+[33818.969951]  VBoxGuestIDC+0x149/0x160 [vboxguest]
+[33818.993881]  ? VbglR0SfCreate+0xaf/0xd0 [vboxsf]
+[33819.018053]  VbglR0IdcCallRaw+0x13/0x20 [vboxsf]
+[33819.037319]  VbglR0HGCMCallRaw+0x44/0xa0 [vboxsf]
+[33819.068000]  VbglR0HGCMCall+0x12/0x20 [vboxsf]
+[33819.129640]  ? sf_stat+0x66/0x110 [vboxsf]
+[33819.167175]  ? sf_inode_revalidate+0x8c/0xe0 [vboxsf]
+[33819.213573]  ? lookup_fast+0x115/0x320
+[33819.238852]  ? _cond_resched+0x19/0x40
+[33819.276111]  ? __d_lookup+0x109/0x140
+[33819.282434]  ? sf_dentry_revalidate+0x13/0x30 [vboxsf]
+[33819.311569]  ? lookup_fast+0x281/0x320
+[33819.312518]  ? __inode_permission+0x5b/0x160
+[33819.320570]  ? walk_component+0x49/0x470
+[33819.408561]  ? path_init+0x177/0x2f0
+[33819.417417]  ? path_lookupat+0x84/0x1f0
+[33819.459193]  ? __switch_to_asm+0x40/0x70
+[33819.488172]  ? __switch_to_asm+0x34/0x70
+[33819.558520]  ? __switch_to_asm+0x40/0x70
+[33819.594426]  ? __switch_to_asm+0x34/0x70
+[33819.657889]  ? __switch_to_asm+0x40/0x70
+[33819.690719]  ? filename_lookup+0xb6/0x190
+[33819.691728]  ? __check_object_size+0xaf/0x1b0
+[33819.733502]  ? strncpy_from_user+0x4d/0x170
+[33819.771896]  ? user_path_at_empty+0x36/0x40
+[33819.830724]  ? user_path_at_empty+0x36/0x40
+[33819.831777]  ? vfs_statx+0x76/0xe0
+[33819.857349]  ? SYSC_newlstat+0x3d/0x70
+[33819.882979]  ? SyS_newlstat+0xe/0x10
+[33819.911543]  ? do_syscall_64+0x73/0x130
+[33819.932355]  ? entry_SYSCALL_64_after_hwframe+0x3d/0xa2
+[33819.943936] Code: 00 44 8d 78 ff 45 89 ea 45 31 e4 45 31 f6 45 31 c0 41 b9 1c ff ff ff 49 83 c7 01 49 c1 e7 04 4d 89 fd 49 89 cf 8b 8d c0 fe ff ff <42> 83 7c 23 28 0a 0f 87 01 02 00 00 42 8b 44 23 28 48 8b 04 c5 
+[33820.003562] RIP: VbglR0HGCMInternalCall+0x63e/0xeb0 [vboxguest] RSP: ffffb822c0e33728
+[33820.091865] ---[ end trace d36ba358563f06dd ]---
+[[0;32m  OK  [0m] Stopped target Cloud-init target.
+[[0;32m  OK  [0m] Stopped target Graphical Interface.
+         Stoppi          Stopping LSB: automatic crash report generation...
+[[0;32m  OK  [0[40821.037737] 11:20:01.235382 control  Guest control service stopped
+m] Stopped Apply the settings sp[40821.116254] 11:20:01.315719 control  Guest control worker returned with rc=VINF_SUCCESS
+ecified in cloud[40821.282150] 11:20:01.481691 main     Session 0 is about to close ...
+-config.
+[40821.474735] 11:20:01.674365 main     Stopping all guest processes ...
+[[0;32m  OK  [0[40821.551747] 11:20:01.751375 main     Closing all guest files ...
+m] Stopped target Cloud-config availability.
+[40821.677483] 11:20:01.877227 main     Ended.
+[[0;32m  OK  [0m] Unmounted /var/lib/lxcfs.
+[[0;32m  OK  [0m] Stopped Accounts Service.
+[[0;32m  OK  [0m] Stopped Snappy daemon.
+[[0;32m  OK  [0m] Stopped Dispatcher daemon for systemd-networkd.
+[[0;32m  OK  [0m] Stopped irqbalance daemon.
+[[0;32m  OK  [0m] Stopped System Logging Service.
+[[0;32m  OK  [0m] Stopped Regular background program processing daemon.
+[[0;32m  OK  [0m] Stopped Deferred execution scheduler.
+[[0;32m  OK  [0m] Stopped OpenBSD Secure Shell server.
+[[0;32m  OK  [0m] Stopped Authorization Manager.
+[[0;32m  OK  [0m] Stopped Serial Getty on ttyS0.
+[[0;32m  OK  [0m] Stopped Getty on tty1.
+[[0;32m  OK  [0m] Stopped User Manager for UID 1000.
+[[0;32m  OK  [0m] Stopped Availability of block devices.
+[[0;32m  OK  [0m] Stopped vboxadd-service.service.
+[[0;32m  OK  [0m] Stopped Unattended Upgrades Shutdown.
+[[0;32m  OK  [0m] Stopped D-Bus System Message Bus.
+[[0;32m  OK  [0m] Stopped FUSE filesystem for LXC.
+[[0;32m  OK  [0m] Stopped Session 19 of user vagrant.
+[[0;32m  OK  [0m] Stopped Session 20 of user vagrant.
+         Stopping vboxadd.service...
+[[0;32m  OK  [0m] Removed slice User Slice of vagrant.
+         Stopping Login Service...
+[[0;32m  OK  [0m] Removed slice system-getty.slice.
+[[0;32m  OK  [0m] Removed slice system-serial\x2dgetty.slice.
+         Stopping Permit User Sessions...
+[[0;32m  OK  [0m] Stopped Login Service.
+[[0;32m  OK  [0m] Stopped LSB: Record successful boot for GRUB.
+[[0;32m  OK  [0m] Stopped LXD - container startup/shutdown.
+[[0;32m  OK  [0m] Stopped LSB: automatic crash report generation.
+[[0;32m  OK  [0m] Stopped vboxadd.service.
+[[0;32m  OK  [0m] Stopped Permit User Sessions.
+[[0;32m  OK  [0m] Stopped target Remote File Systems.
+[[0;32m  OK  [0m] Stopped target Remote File Systems (Pre).
+         Stopping iSCSI initiator daemon (iscsid)...
+[[0;32m  OK  [0m] Stopped target Basic System.
+[[0;32m  OK  [0m] Stopped target Paths.
+[[0;32m  OK  [0m] Stopped ACPI Events Check.
+[[0;32m  OK  [0m] Stopped target Sockets.
+[[0;32m  OK  [0m] Closed Syslog Socket.
+[[0;32m  OK  [0m] Closed UUID daemon activation socket.
+[[0;32m  OK  [0m] Closed Socket activation for snappy daemon.
+[[0;32m  OK  [0m] Closed ACPID Listen Socket.
+[[0;32m  OK  [0m] Closed LXD - unix socket.
+[[0;32m  OK  [0m] Stopped target Slices.
+[[0;32m  OK  [0m] Closed D-Bus System Message Bus Socket.
+[[0;32m  OK  [0m] Removed slice User and Session Slice.
+[[0;32m  OK  [0m] Stopped target User and Group Name Lookups.
+[[0;32m  OK  [0m] Stopped target System Initialization.
+         Stopping Load/Save Random Seed...
+[[0;32m  OK  [0m] Stopped target Local Encrypted Volumes.
+[[0;32m  OK  [0m] Stopped Dispatch Password Requests to Console Directory Watch.
+[[0;32m  OK  [0m] Stopped Forward Password Requests to Wall Directory Watch.
+         Stopping Update UTMP about System Boot/Shutdown...
+[[0;32m  OK  [0m] Stopped iSCSI initiator daemon (iscsid).
+[[0;32m  OK  [0m] Stopped Load/Save Random Seed.
+[[0;32m  OK  [0m] Stopped target Network is Online.
+[[0;32m  OK  [0m] Stopped Initial cloud-init job (metadata service crawler).
+[[0;32m  OK  [0m] Stopped target Network.
+         Stopping Network Name Resolution...
+[[0;32m  OK  [0m] Stopped Network Name Resolution.
+[[0;32m  OK  [0m] Stopped Update UTMP about System Boot/Shutdown.
+[[0;32m  OK  [0m] Stopped Create Volatile Files and Directories.
+[[0;32m  OK  [0m] Stopped target Local File Systems.
+         Unmounting /run/user/1000...
+         Unmounting /vagrant...
+         Stopping Network Service...
+[[0;32m  OK  [0m] Unmounted /run/user/1000.
+[[0;32m  OK  [0m] Stopped Network Service.
+[[0;1;31mFAILED[0m] Failed unmounting /vagrant.
+[[0;32m  OK  [0m] Stopped target Network (Pre).
+[[0;32m  OK  [0m] Stopped Initial cloud-init job (pre-networking).
+[[0;32m  OK  [0m] Stopped Apply Kernel Variables.
+[[0;32m  OK  [0m] Stopped Load Kernel Modules.
+[[0;32m  OK  [0m] Reached target Unmount All Filesystems.
+[[0;32m  OK  [0m] Stopped target Swap.
+[[0;32m  OK  [0m] Stopped target Local File Systems (Pre).
+         Stopping Monitoring of LVM2 mirrors…ng dmeventd or progress polling...
+[[0;32m  OK  [0m] Stopped Create Static Device Nodes in /dev.
+[[0;32m  OK  [0m] Stopped Remount Root and Kernel File Systems.
+[[0;32m  OK  [0m] Reached target Shutdown.
+[[0;32m  OK  [0m] Reached target Final Step.
+         Starting Power-Off...
+[[0;32m  OK  [0m] Stopped Monitoring of LVM2 mirrors,…sing dmeventd or progress polling.
+         Stopping LVM2 metadata daemon...
+[[0;32m  OK  [0m] Stopped LVM2 metadata daemon.
+[40825.083706] systemd-shutdow: 27 output lines suppressed due to ratelimiting
+[40826.516090] systemd-shutdown[1]: Syncing filesystems and block devices.
+[40826.644435] systemd-shutdown[1]: Sending SIGTERM to remaining processes...
+[40826.689223] systemd-journald[411]: Received SIGTERM from PID 1 (systemd-shutdow).
+[40826.794124] systemd-shutdown[1]: Sending SIGKILL to remaining processes...
+[40826.826718] systemd-shutdown[1]: Unmounting file systems.
+[40826.839363] systemd-shutdown[1]: Failed to wait for process: Protocol error
+[40826.872043] EXT4-fs (sda1): re-mounted. Opts: data=ordered
+[40826.887721] systemd-shutdown[1]: Not all file systems unmounted, 1 left.
+[40826.944066] systemd-shutdown[1]: Deactivating swaps.
+[40826.994859] systemd-shutdown[1]: All swaps deactivated.
+[40826.998765] systemd-shutdown[1]: Detaching loop devices.
+[40827.044057] systemd-shutdown[1]: All loop devices detached.
+[40827.888665] ACPI: Preparing to enter system sleep state S5
+[40828.974936] reboot: Power down
+[40829.023072] acpi_power_off called

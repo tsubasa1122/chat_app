@@ -5,8 +5,9 @@ class Api::MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.find_by(contents: params[:contents])
-    @message.save(message_params)
+    @message = Message.new(message_params)
+    puts @message.errors.full_messages
+    @message.save
     render json: @message
   end
 

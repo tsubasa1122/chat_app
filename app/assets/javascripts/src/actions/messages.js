@@ -23,7 +23,7 @@ export default {
     })
   },
 
-  sendMessage(userID, message) {
+  sendMessage(message) {
     return new Promise((resolve, reject) => {
       request
       .post(`${APIEndpoints.MESSAGES}`)
@@ -35,7 +35,7 @@ export default {
           Dispatcher.handleServerAction({
             type: ActionTypes.SEND_MESSAGE,
             contents: message,
-            userID: userID,
+            // userID: userID,
             timestamp: +new Date(),
             json,
           })

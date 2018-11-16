@@ -3,7 +3,6 @@ import classNames from 'classNames'
 import MessagesStore from '../../stores/messages'
 import ReplyBox from '../../components/messages/replyBox'
 import MessagesAction from '../../actions/messages'
-import _ from 'lodash'
 
 class MessagesBox extends React.Component {
 
@@ -31,9 +30,7 @@ class MessagesBox extends React.Component {
     this.setState(this.getStateFromStore())
   }
   render() {
-    const allMessages = this.state.messages
-
-    const messages = _.map(allMessages, (message) => {
+    const messages = this.state.messages.map(message => {
       const messageClasses = classNames({
         'message-box__item': true,
         'clear': true,
@@ -49,7 +46,7 @@ class MessagesBox extends React.Component {
     return (
         <div className='message-box'>
           <ul className='message-box__list'>
-            { messages}
+            { messages }
           </ul>
           <ReplyBox />
         </div>
