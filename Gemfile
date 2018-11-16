@@ -16,6 +16,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
+gem "refile", require: "refile/rails"
+gem 'refile-mini_magick'
 
 
 group :development, :test do
