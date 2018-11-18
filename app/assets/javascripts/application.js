@@ -12,3 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+
+
+
+//メニュー表示
+
+$(function(){
+  $(document).on('click', ".dropdown", function(){
+    $(".menu__wrapper").show();
+    $(".dropdown-menu").show();
+  })
+  $(document).on('click', ".menu__wrapper", function(){
+    $(".menu__wrapper").hide();
+    $(".dropdown-menu").hide();
+  })
+})

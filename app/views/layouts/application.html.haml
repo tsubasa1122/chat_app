@@ -9,7 +9,9 @@
     = csrf_meta_tags
   %body
     - if user_signed_in?
+
       %header
+      %div{class: "menu__wrapper"}
         %div{class: "header-left"}
           = link_to "ホーム", root_path, class:"header-logo"
         %div{class:"header-right"}
@@ -26,3 +28,4 @@
                 %li{class: "user-menu-list"}
                   = link_to "ログアウト", destroy_user_session_path, method: :delete
     = yield
+

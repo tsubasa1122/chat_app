@@ -1,6 +1,6 @@
 %div{class: "user_profile"}
   %div{class: "user_profile_image"}
-    = attachment_image_tag @user, :profile_image, fallback: 'no_image_jpg'
+    = attachment_image_tag @user, :profile_image, fallback: 'no_image.jpg'
   %div{class: "user_profile_name"}
     = @user.name
   %div{class: "user_profile_email"}
