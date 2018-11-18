@@ -13,3 +13,111 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+
+
+header{
+    height: 50px;
+    font-size: 1.15em;
+    background: #f8f8f8;
+    border-bottom: 1px solid #e0e0e0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+}
+.header-left{
+    float: left;
+    line-height: 50px;
+    padding-left: 30px;
+}
+.header-logo{
+    color: rgb(94, 94, 94);
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+.header-right{
+    float: right;
+    line-height: 50px;
+    padding-right: 40px;
+}
+.nav-tabs{
+    border-bottom: 1px solid #ddd;
+}
+.nav-tabs>li{
+    float: left;
+    margin-bottom: -1px;
+}
+.nav-tabs>li>a{
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    color: rgb(94, 94, 94);
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+.nav{
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+.nav>li{
+    position: relative;
+    display: block;
+}
+.nav>li>a{
+    position: relative;
+    display: block;
+    padding: 12px 15px;
+    color: rgb(94, 94, 94);
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+.caret{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid \9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+.dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    background-clip: padding-box;
+}
+.user-menu-list{
+    padding: 10px 0;
+}
+.dropdown-menu>li>a{
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
+}
