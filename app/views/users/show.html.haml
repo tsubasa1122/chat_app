@@ -1,9 +1,9 @@
 %div{class: "user_profile"}
   %div{class: "user_profile_image"}
-    = attachment_image_tag @user.profile_image
-
+    = attachment_image_tag @user, :profile_image, fallback: 'no_image_jpg'
   %div{class: "user_profile_name"}
-
+    = @user.name
   %div{class: "user_profile_email"}
-
+    = @user.email
   %div{class: "user_profile_edit_btn"}
+    = link_to "プロフィール編集",edit_user_registration_path, class: "btn btn-info"
