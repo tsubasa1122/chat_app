@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'users/show'
-
-  get 'users/edit'
-
   devise_for :users
   # apiのルート
   namespace :api , {format: 'json'} do
@@ -14,4 +9,5 @@ Rails.application.routes.draw do
 
   resources :messages
   root to: 'messages#index'
+  resources :users, only: [:show]
 end

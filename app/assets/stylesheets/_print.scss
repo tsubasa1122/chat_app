@@ -7,7 +7,8 @@
   }
   a,
   a:visited {
-    text-decoration: underline;
+    color: #337ab7;
+    text-decoration: none;
   }
   a[href]:after {
     content: " (" attr(href) ")";

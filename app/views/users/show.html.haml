@@ -1,2 +1,9 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+%div{class: "user_profile"}
+  %div{class: "user_profile_image"}
+    = attachment_image_tag @user.profile_image
+
+  %div{class: "user_profile_name"}
+
+  %div{class: "user_profile_email"}
+
+  %div{class: "user_profile_edit_btn"}

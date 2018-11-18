@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   has_many :post_images, dependent: :destroy
+  attachment :profile_image
+
+
 end
