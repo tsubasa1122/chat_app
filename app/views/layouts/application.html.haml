@@ -11,13 +11,13 @@
     - if user_signed_in?
 
       %header
-      %div{class: "menu__wrapper"}
         %div{class: "header-left"}
           = link_to "ホーム", root_path, class:"header-logo"
         %div{class:"header-right"}
           %ul{class: "nav nav-tabs"}
             %li{class: "search-user-btn"}
-              = link_to "ユーザーを探す", '/users/search'
+              = link_to "ユーザーを探す",  '/users/search'
+            %div{class: "menu__wrapper"}
             %li{class: "dropdown"}
               %div{role: "button"}
                 = current_user.name
