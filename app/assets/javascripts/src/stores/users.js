@@ -31,7 +31,7 @@ UserStore.dispatchToken = Dispatcher.register(payload => {
   const action = payload.action
   switch (action.type) {
     case ActionTypes.GET_USERS:
-      UserStore.setOpenChatUserID(payload.action.json.user.id)
+      UserStore.setOpenChatUserID(payload.action.json.id)
       UserStore.setUsers(payload.action.json.user)
       UserStore.emitChange()
       break
@@ -43,6 +43,11 @@ UserStore.dispatchToken = Dispatcher.register(payload => {
 
     case ActionTypes.UPDATE_OPEN_CHAT_ID:
       UserStore.setOpenChatUserID(action.userID)
+      UserStore.emitChange()
+      break
+
+    case ActionTypes.DELETE_FRIENDSHIPS:
+      UserStore.setUsers(action.json.user)
       UserStore.emitChange()
       break
   }

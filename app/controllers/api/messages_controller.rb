@@ -1,9 +1,12 @@
 class Api::MessagesController < ApplicationController
 
   def index
-    @messages = Message.all
+    messages = Message.both_message(
+        params[:from_user_id],
+        current_user.id
+    )
     render json: {
-        messages: @messages,
+        messages: messages,
     }
   end
 

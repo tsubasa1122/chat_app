@@ -40,7 +40,7 @@ class MessagesBox extends React.Component {
     const messagesBox = this.state.messages.map((message, index) => {
       const messageClasses = classNames({
         'message-box__item': true,
-        'message-box__item--from-current': message.follower_id !== openChatUserID,
+        'message-box__item--from-current': message.followed_id !== openChatUserID,
         'clear': true,
       })
 
