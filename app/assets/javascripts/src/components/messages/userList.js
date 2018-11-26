@@ -1,117 +1,108 @@
-// import React from 'react'
-// // import classNames from 'classnames'
-// import _ from 'lodash'
-// // import Utils from '../../utils'
-// import MessagesStore from '../../stores/messages'
-// // import UserStore from '../../stores/user'
-//
-// class UserList extends React.Component {
-//
-//   constructor(props) {
-//     super(props)
-//     this.state = this.initialState
-//   }
-//
-//   get initialState() {
-//     return this.getStateFromStore()
-//   }
-//   getStateFromStore() {
-//     const allMessages = MessagesStore.getMessages()
-//
-//     const messageList = []
-//     _.each(allMessages, (message) => {
-//       const messagesLength = message.contents.length
-//       messageList.push({
-//         lastMessage: message.contents[messagesLength - 1],
-//         lastAccess: message.lastAccess,
-//         user: message.user,
-//       })
-//     })
-//     return {
-//       // openChatID: MessagesStore.getOpenChatUserID(),
-//       messageList: messageList,
-//     }
-//   }
-//   componentWillMount() {
-//     MessagesStore.onChange(this.onStoreChange.bind(this))
-//   }
-//   componentWillUnmount() {
-//     MessagesStore.offChange(this.onStoreChange.bind(this))
-//   }
-//   onStoreChange() {
-//     this.setState(this.getStateFromStore())
-//   }
-//    // changeOpenChat(id) {
-//    //   MessagesAction.changeOpenChat(id)
-//    // }
-//   render() {
-//     this.state.messageList.sort((a, b) => {
-//       if (a.lastMessage.timestamp > b.lastMessage.timestamp) {
-//         return -1
-//       }
-//       if (a.lastMessage.timestamp < b.lastMessage.timestamp) {
-//         return 1
-//       }
-//       return 0
-//     })
-//
-//     // const messages = this.state.messageList.map((message, index) => {
-//     //   const date = Utils.getNiceDate(message.lastMessage.timestamp)
-//     //
-//     //   var statusIcon
-//     //   if (message.lastMessage.from !== message.user.id) {
-//     //     statusIcon = (
-//     //       <i className='fa fa-reply user-list__item__icon' />
-//     //     )
-//     //   }
-//     //   if (message.lastAccess.currentUser < message.lastMessage.timestamp) {
-//     //     statusIcon = (
-//     //       <i className='fa fa-circle user-list__item__icon' />
-//     //     )
-//     //   }
-//     //
-//     //   var isNewMessage = false
-//     //   if (message.lastAccess.currentUser < message.lastMessage.timestamp) {
-//     //     isNewMessage = message.lastMessage.from !== UserStore.user.id
-//     //   }
-//     //
-//     //   const itemClasses = classNames({
-//     //     'user-list__item': true,
-//     //     'clear': true,
-//     //     'user-list__item--new': isNewMessage,
-//     //     'user-list__item--active': this.state.openChatID === message.user.id,
-//     //   })
-//     //   return (
-//     //     <li
-//     //       onClick={ this.changeOpenChat.bind(this, message.user.id)}
-//     //       className={ itemClasses }
-//     //       key={ message.user.id }
-//     //     >
-//     //       <div className='user-list__item__picture'>
-//     //         <img src={ message.user.profilePicture } />
-//     //       </div>
-//     //       <div className='user-list__item__details'>
-//     //         <h4 className='user-list__item__name'>
-//     //           { message.user.name }
-//     //           <abbr className='user-list__item__timestamp'>
-//     //             { date }
-//     //           </abbr>
-//     //         </h4>
-//     //         <span className='user-list__item__message'>
-//     //           { statusIcon } { message.lastMessage.contents }
-//     //         </span>
-//     //       </div>
-//     //     </li>
-//     //   )
-//     // }, this)
-//     return (
-//       <div className='user-list'>
-//         <ul className='user-list__list'>
-//           { messages }
-//         </ul>
-//       </div>
-//     )
-//   }
-// }
-//
-// export default UserList
+import React from 'react'
+import classNames from 'classnames'
+import UserStore from '../../stores/users'
+import UserAction from '../../actions/users'
+import MessagesBox from '../../components/messages/messagesBox'
+import MessagesAction from '../../actions/messages'
+import {CSRFToken} from '../../constants/app'
+
+class UserList extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = this.initialState
+  }
+  get initialState() {
+    UserAction.getUsers()
+    return this.getStateFromStore()
+  }
+
+  getStateFromStore() {
+    const openChatUserID = UserStore.getOpenChatUserID()
+    const friendships = UserStore.getUsers()
+    MessagesAction.getMessages(openChatUserID)
+    return {
+      openChatUserID: openChatUserID,
+      friendships: friendships,
+    }
+  }
+  componentWillMount() {
+    UserStore.onChange(this.onStoreChange.bind(this))
+  }
+  componentWillUnmount() {
+    UserStore.offChange(this.onStoreChange.bind(this))
+  }
+  onStoreChange() {
+    this.setState(this.getStateFromStore())
+  }
+  changeOpenChat(id) {
+    UserAction.changeOpenChat(id)
+  }
+
+  deleteChatConfirm(e) {
+    if (!confirm('本当に削除しますか？(チャットの履歴は残ります。)')) {
+      e.preventDefault()
+    }
+  }
+
+  render() {
+    const {friendships, openChatUserID} = this.state
+
+    const friends_list = friendships.map((user, index) => {
+      const itemClasses = classNames({
+        'user-list__item': true,
+        'clear': true,
+        'user-list__item--active': openChatUserID === user.id,
+      })
+
+      return (
+        <li
+          key={user.id}
+          onClick={this.changeOpenChat.bind(this, user.id)}
+          className={itemClasses}
+        >
+          <form action={`/friendships/${user.id}`} method='post'>
+            <input
+              type='hidden'
+              name='authenticity_token'
+              value={CSRFToken()}
+            />
+            <input
+              type='hidden'
+              name='_method'
+              value='delete'
+            />
+            <input
+              type='submit'
+              value='&#xf057;'
+              className='remove-chat-btn'
+              onClick={this.deleteChatConfirm.bind(this)}
+            />
+          </form>
+          <div className='user-list__item__picture'>
+            <img src={ user.profileImage } />
+          </div>
+          <div className='user-list__item__details'>
+            <h4 className='user-list__item__name'>
+              { user.name }
+            </h4>
+          </div>
+        </li>
+      )
+    }, this)
+
+    return (
+      <div>
+        <div className='user-list'>
+          <ul className='user-list__list'>
+            { friends_list }
+          </ul>
+        </div>
+        <MessagesBox {...this.state} />
+      </div>
+    )
+  }
+}
+
+export default UserList
+

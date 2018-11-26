@@ -2,8 +2,19 @@ import Dispatcher from '../dispatcher'
 import BaseStore from '../base/store'
 import {ActionTypes} from '../constants/app'
 
-class UserStore extends BaseStore {
-
+class User extends BaseStore {
+  addChangeListener(callback) {
+    this.on('change', callback)
+  }
+  removeChangeListener(callback) {
+    this.off('change', callback)
+  }
+  getOpenChatUserID() {
+    return this.get('openChatUserID')
+  }
+  setOpenChatUserID(userID) {
+    this.set('openChatUserID', userID)
+  }
   getUsers() {
     if (!this.get('users')) this.setUsers([])
     return this.get('users')
@@ -14,22 +25,28 @@ class UserStore extends BaseStore {
   }
 }
 
-const User = new UserStore()
+const UserStore = new User()
 
-User.dispatchToken = Dispatcher.register(payload => {
+UserStore.dispatchToken = Dispatcher.register(payload => {
   const action = payload.action
   switch (action.type) {
     case ActionTypes.GET_USERS:
-      User.setUsers(payload.action.json)
-      User.emitChange()
+      UserStore.setOpenChatUserID(payload.action.json.user.id)
+      UserStore.setUsers(payload.action.json.user)
+      UserStore.emitChange()
       break
 
     case ActionTypes.SEARCH_USERS:
-      User.setUsers(payload.action.json)
-      User.emitChange()
+      UserStore.setUsers(payload.action.json)
+      UserStore.emitChange()
+      break
+
+    case ActionTypes.UPDATE_OPEN_CHAT_ID:
+      UserStore.setOpenChatUserID(action.userID)
+      UserStore.emitChange()
       break
   }
   return true
 })
 
-export default User
+export default UserStore

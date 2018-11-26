@@ -59,6 +59,7 @@
       margin: 3px 0 0 0;
       font-size: 16px;
       font-weight: inherit;
+      color: #000 !important;
     }
 
     &__message {
@@ -82,5 +83,12 @@
       float: left;
       padding-left: 15px;
     }
+  }
+  .remove-chat-btn{
+    color: #d9534f;
+    float: right;
+    margin-top: -10px;
+    background: rgba(0,0,0,0.01);
+    border: 0;
   }
 }

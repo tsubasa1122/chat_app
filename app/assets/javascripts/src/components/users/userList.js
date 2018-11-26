@@ -4,11 +4,6 @@ import UserStore from '../../stores/users'
 import Utils from '../../utils'
 
 export default class UserList extends React.Component {
-  static get propTypes() {
-    return {
-      searchString: React.PropTypes.string,
-    }
-  }
 
   constructor(props) {
     super(props)
@@ -35,8 +30,8 @@ export default class UserList extends React.Component {
     this.setState(this.getStateFromStores())
   }
 
-  onSubmitHandler(to_user_id) {
-    Utils.post('/friendships', {to_user_id})
+  onSubmitHandler(follow_id) {
+    Utils.post('/friendships', {follow_id})
   }
 
   render() {
@@ -49,7 +44,7 @@ export default class UserList extends React.Component {
             return (
               <li className='search_user_list_item' key={user.id}>
                 <div className='search_user_list_result' onClick={this.onSubmitHandler.bind(this, user.id)}>
-                  <img className='search_user_list_result_image' src={user.profile_image ? '/user_images/' + user.profile_image : '/assets/images/no_image.jpg'} />
+                  <img className='search_user_list_result_image' src={user.profile_image ? '/user_images/' + user.profile_image : 'no_image.jpg'} />
                   {user.name}
                 </div>
               </li>
