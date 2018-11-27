@@ -18,6 +18,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem "refile", require: "refile/rails"
 gem 'refile-mini_magick'
+gem 'carrierwave'
+gem 'rmagick', require: 'RMagick'
+gem 'mini_magick'
+gem 'fog',                     '1.36.0'
 
 
 

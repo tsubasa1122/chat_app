@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
       @user = User.find_by(id: follow.followed_id)
       array.push(@user)
     end
-    render json: array
+    render json: {user: array}
   end
 
   def search

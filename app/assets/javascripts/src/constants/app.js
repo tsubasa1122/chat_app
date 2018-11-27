@@ -15,7 +15,6 @@ export const ActionTypes = keyMirror({
   SEARCH_USERS: null,
   USER_MESSAGES: null,
   GET_USERS: null,
-  DELETE_FRIENDSHIPS: null,
 })
 
 export const APIRoot = `${Root}/api`
@@ -24,6 +23,5 @@ export const APIEndpoints = {
   USERS: APIRoot + '/users',
   FRIENDSHIPS: APIRoot + '/friendships',
   CURRENT_USER: APIRoot + '/current_user',
-  DELETE_FRIENDSHIPS: APIRoot + '/friendships/',
 }
 

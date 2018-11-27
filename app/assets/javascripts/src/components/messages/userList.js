@@ -4,6 +4,7 @@ import UserStore from '../../stores/users'
 import UserAction from '../../actions/users'
 import MessagesBox from '../../components/messages/messagesBox'
 import MessagesAction from '../../actions/messages'
+import {CSRFToken} from '../../constants/app'
 
 class UserList extends React.Component {
 
@@ -39,8 +40,10 @@ class UserList extends React.Component {
     UserAction.changeOpenChat(id)
   }
 
-  deleteFriendships(userID) {
-    UserAction.deleteFriendships(userID)
+  deleteChatConfirm(e) {
+    if (!confirm('本当に削除しますか？(チャットの履歴は残ります。)')) {
+      e.preventDefault()
+    }
   }
 
   render() {
@@ -59,16 +62,24 @@ class UserList extends React.Component {
           className={ itemClasses }
           key={ index }
         >
-          <div
-            onClick={ this.deleteFriendships.bind(this, user.id) }
-            className='pull-right'
-          >
-          <span
-            aria-hidden={true}
-            className='glyphicon glyphicon-remove'
-          >
-          </span>
-          </div>
+          <form action={`/friendships/${user.id}`} method='post'>
+            <input
+              type='hidden'
+              name='authenticity_token'
+              value={CSRFToken()}
+            />
+            <input
+              type='hidden'
+              name='_method'
+              value='delete'
+            />
+            <input
+              type='submit'
+              value='&#xf057;'
+              className='remove-chat-btn'
+              onClick={this.deleteChatConfirm.bind(this)}
+            />
+          </form>
           <div className='user-list__item__picture'>
             <img src={ user.profileImage } />
           </div>

@@ -50,7 +50,7 @@ export default {
     })
   },
 
-  sendImage(file, followed_id) {
+  sendImage(followed_id, file) {
     return new Promise((resolve, reject) => {
       request
         .post(`${APIEndpoints.MESSAGES}/upload_image`)
@@ -62,30 +62,8 @@ export default {
             const json = JSON.parse(res.text)
             Dispatcher.handleServerAction({
               type: ActionTypes.SEND_IMAGE,
-              post_image: file.name,
+              image: file.name,
               followed_id,
-              json,
-            })
-            resolve(json)
-          } else {
-            reject(res)
-          }
-        })
-    })
-  },
-  deleteFriendships(userID) {
-    return new Promise((resolve, reject) => {
-      request
-        .delete(`${APIEndpoints.DELETE_FRIENDSHIPS + userID}`)
-        .set('X-CSRF-Token', CSRFToken())
-        .send({
-          followed_id: userID,
-        })
-        .end((error, res) => {
-          if (!error && res.status === 200) {
-            const json = JSON.parse(res.text)
-            Dispatcher.handleServerAction({
-              type: ActionTypes.DELETE_FRIENDSHIPS,
               json,
             })
             resolve(json)

@@ -25,7 +25,7 @@ MessagesStore.dispatchToken = Dispatcher.register(payload => {
 
   switch (action.type) {
     case ActionTypes.GET_MESSAGES:
-      MessagesStore.setMessages(payload.action.json)
+      MessagesStore.setMessages(action.json.messages)
       MessagesStore.emitChange()
       break
 

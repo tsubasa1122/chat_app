@@ -1,6 +1,7 @@
 class Message < ActiveRecord::Base
   belongs_to :user
-  attachment :image
+  # 画像投稿
+  mount_uploader :image, ImagesUploader
 
   validates :followed_id, presence: true
   validates :follower_id, presence: true
