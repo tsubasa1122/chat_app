@@ -44,7 +44,7 @@ export default class UserList extends React.Component {
             return (
               <li className='search_user_list_item' key={user.id}>
                 <div className='search_user_list_result' onClick={this.onSubmitHandler.bind(this, user.id)}>
-                  <img className='search_user_list_result_image' src={user.profile_image ? '/user_images/' + user.profile_image : 'no_image.jpg'} />
+                  <img className='search_user_list_result_image' src={user.profileImage} />
                   {user.name}
                 </div>
               </li>

@@ -2,7 +2,7 @@ class FriendshipsController < ApplicationController
   def create
     user = User.find(params[:follow_id])
     if current_user.following?(user)
-      redirect_to root_path
+      redirect_to users_path
     else
       current_user.follow!(user)
       redirect_to root_path

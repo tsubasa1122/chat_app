@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.8'
 gem "json" , github: "flori/json", branch: "v1.8"
-gem 'sqlite3'
 gem 'haml-rails'
 gem 'erb2haml'
 gem "browserify-rails"
@@ -23,6 +22,8 @@ gem 'rmagick', require: 'RMagick'
 gem 'mini_magick'
 gem 'fog',                     '1.36.0'
 
+gem 'sqlite3', group: :development
+gem 'pg', '~> 1.1.3', group: :production
 
 
 group :development, :test do

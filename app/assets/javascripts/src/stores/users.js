@@ -46,10 +46,6 @@ UserStore.dispatchToken = Dispatcher.register(payload => {
       UserStore.emitChange()
       break
 
-    case ActionTypes.DELETE_FRIENDSHIPS:
-      UserStore.setUsers(payload.action.user)
-      UserStore.emitChange()
-      break
   }
   return true
 })

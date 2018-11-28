@@ -19,13 +19,13 @@ class Api::UsersController < ApplicationController
     render json: @search
   end
 
-  def show
-    @user = User.find(params[:id])
-    @messages = Message.where(user_id: params[:id])
-    @accesses = Access.where(user_id: params[:id])
-    @obj = {id: @user.id, name: @user.name, email: @user.email, profile_image: @user.profile_image_id, messages: @messages, accesses: @accesses}
-    render json: @obj
-  end
+  # def show
+  #   @user = User.find(params[:id])
+  #   @messages = Message.where(user_id: params[:id])
+  #   @accesses = Access.where(user_id: params[:id])
+  #   @obj = {id: @user.id, name: @user.name, email: @user.email, profile_image: @user.profile_image_id, messages: @messages, accesses: @accesses}
+  #   render json: @obj
+  # end
 
 
 end
