@@ -23,7 +23,7 @@ gem 'mini_magick'
 gem 'fog',                     '1.36.0'
 
 gem 'sqlite3', group: :development
-gem 'pg', '~> 1.1.3', group: :production
+gem 'pg', '~> 0.19.0', group: :production
 
 
 group :development, :test do
