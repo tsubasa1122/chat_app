@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba6c13d5-7186-425d-8495-a2b3df2a13cf" name="Default Changelist" comment="" />
+    <list default="true" id="ba6c13d5-7186-425d-8495-a2b3df2a13cf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
     <ignored path="$PROJECT_DIR$/public/system/" />
@@ -95,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="717952">
+              <caret line="49188" selection-start-line="49188" selection-end-line="49188" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -165,11 +167,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/application-9b958dd1be68fd1dda9e94912a3bb6d2efa3d650ae84c7581c19148360ed27c9.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="49162" selection-start-line="49162" selection-end-line="49162" />
+            <state relative-caret-position="45">
+              <caret line="3" column="8415" lean-forward="true" selection-start-line="3" selection-start-column="8415" selection-end-line="3" selection-end-column="8415" />
             </state>
           </provider>
         </entry>
@@ -248,10 +250,10 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/src/boot.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
         <option value="$PROJECT_DIR$/public/assets/application-9b958dd1be68fd1dda9e94912a3bb6d2efa3d650ae84c7581c19148360ed27c9.js" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
       </list>
     </option>
   </component>
@@ -563,7 +565,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233507000" />
+    <option name="totallyTimeSpent" value="234076000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -928,16 +930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/boot.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -967,8 +959,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/application-9b958dd1be68fd1dda9e94912a3bb6d2efa3d650ae84c7581c19148360ed27c9.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="49162" selection-start-line="49162" selection-end-line="49162" />
+        <state relative-caret-position="45">
+          <caret line="3" column="8415" lean-forward="true" selection-start-line="3" selection-start-column="8415" selection-end-line="3" selection-end-column="8415" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717952">
+          <caret line="49188" selection-start-line="49188" selection-end-line="49188" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
