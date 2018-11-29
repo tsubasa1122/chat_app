@@ -24,6 +24,7 @@ gem 'fog',                     '1.36.0'
 
 gem 'sqlite3', group: :development
 gem 'pg', '~> 0.19.0', group: :production
+gem 'rails_12factor'
 
 
 group :development, :test do
