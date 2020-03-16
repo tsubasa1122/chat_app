@@ -27,7 +27,7 @@
     "react-proxy": "^2.0.1"
   },
   "dependencies": {
-    "acorn": "^3.1.0",
+    "acorn": "^5.7.4",
     "babel-core": "^6.3.21",
     "babel-plugin-react-transform": "^2.0.0",
     "babel-polyfill": "^6.3.14",
