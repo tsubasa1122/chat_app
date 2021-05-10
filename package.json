@@ -49,7 +49,7 @@
     "gulp-util": "3.0.7",
     "i18n-js": "http://github.com/fnando/i18n-js/archive/v3.0.0.rc8.tar.gz",
     "keymirror": "~0.1.0",
-    "lodash": "^4.2.1",
+    "lodash": "^4.17.21",
     "material-ui": "^0.14.4",
     "moment": "2.11.2",
     "object-assign": "4.0.1",
