@@ -51,7 +51,7 @@
     "keymirror": "~0.1.0",
     "lodash": "^4.2.1",
     "material-ui": "^0.14.4",
-    "moment": "2.11.2",
+    "moment": "2.29.2",
     "object-assign": "4.0.1",
     "page": "^1.6.4",
     "rc-tooltip": "^3.3.0",
